@@ -1633,11 +1633,11 @@ namespace AutoFences
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b0078
-			public const int MapButton = 2131427448;
-			
 			// aapt resource value: 0x7f0b0079
-			public const int SplashScreen = 2131427449;
+			public const int MapButton = 2131427449;
+			
+			// aapt resource value: 0x7f0b007a
+			public const int SplashScreen = 2131427450;
 			
 			// aapt resource value: 0x7f0b0045
 			public const int action_bar = 2131427397;
@@ -1834,26 +1834,26 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b006f
 			public const int loginbutton = 2131427439;
 			
-			// aapt resource value: 0x7f0b0072
-			public const int map = 2131427442;
+			// aapt resource value: 0x7f0b0073
+			public const int map = 2131427443;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int media_route_control_frame = 2131427446;
-			
 			// aapt resource value: 0x7f0b0077
-			public const int media_route_disconnect_button = 2131427447;
+			public const int media_route_control_frame = 2131427447;
 			
-			// aapt resource value: 0x7f0b0073
-			public const int media_route_list = 2131427443;
+			// aapt resource value: 0x7f0b0078
+			public const int media_route_disconnect_button = 2131427448;
 			
 			// aapt resource value: 0x7f0b0074
-			public const int media_route_volume_layout = 2131427444;
+			public const int media_route_list = 2131427444;
 			
 			// aapt resource value: 0x7f0b0075
-			public const int media_route_volume_slider = 2131427445;
+			public const int media_route_volume_layout = 2131427445;
+			
+			// aapt resource value: 0x7f0b0076
+			public const int media_route_volume_slider = 2131427446;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int middle = 2131427349;
@@ -1926,6 +1926,9 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f0b0029
 			public const int selectionDetails = 2131427369;
+			
+			// aapt resource value: 0x7f0b0072
+			public const int setRadius = 2131427442;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int shortcut = 2131427390;

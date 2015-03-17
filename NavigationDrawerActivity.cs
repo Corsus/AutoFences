@@ -256,7 +256,7 @@ namespace AutoFences
                     TextView tv = new TextView (Application.Context);
                     tv.Text = td.startDate + " @ " + td.startTime;
                     tv.TextSize = 30;
-                    tv.Elevation = 4;
+                    //tv.Elevation = 4;
                     tv.SetPadding (5, 5, 5, 5);
                     tv.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
                     tv.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
@@ -266,7 +266,7 @@ namespace AutoFences
                     LinearLayout innerll1 = new LinearLayout (Application.Context);
                     innerll1.Orientation = Android.Widget.Orientation.Horizontal;
                     innerll1.Id = i + 5000;
-                    innerll1.Elevation = 4;
+                    //innerll1.Elevation = 4;
                     innerll1.SetPadding (5, 5, 5, 5);
                     innerll1.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
 
@@ -285,7 +285,7 @@ namespace AutoFences
 
                     LinearLayout innerll2 = new LinearLayout (Application.Context);
                     innerll2.Orientation = Android.Widget.Orientation.Horizontal;
-                    innerll2.Elevation = 4;
+                    //innerll2.Elevation = 4;
                     innerll2.SetPadding (5, 5, 5, 5);
                     innerll2.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
 
@@ -298,7 +298,7 @@ namespace AutoFences
                     TextView tv2 = new TextView (Application.Context);
                     tv2.Text = "   " + td.maxSpeed;
                     tv2.TextSize = 20;
-                    tv2.Elevation = 4;
+                    //tv2.Elevation = 4;
                     tv2.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
                     innerll2.AddView (tv2);
                     linlay.AddView (innerll2);
