@@ -260,15 +260,45 @@ namespace AutoFences
                 // programmatically create a view widget for each trip
                 LinearLayout linlay = view.FindViewById<LinearLayout> (Resource.Id.linearLayout3);
 
+                //places all the UI elements
                 foreach (TripData td in list) {
                     if(tripsDisplayed > numTripsToDisplay){
                         break;
                     } else {
                         tripsDisplayed++;
                     }
+
+                    // get most recent time
+                    if(firstTrip){
+                        lastTime = td.startDate + " @ " + td.startTime;
+                        firstTrip = false;
+                    } else {
+                        // drive divider first for every one except for first card
+                        var space = new Space (Application.Context){
+                            LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, 10)
+                        };
+                        var divider = new LinearLayout (Application.Context){
+                            LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, 1)
+                        };
+
+                        divider.SetBackgroundColor (Resources.GetColor(17170432)); //darker grey
+
+                        //add divider then space for padding
+                        linlay.AddView (divider);
+                        linlay.AddView (space);
+                    }
+
+
                     ImageView mapButton = new ImageView (Application.Context);
                     mapButton.SetImageResource (Resource.Drawable.mapButton);
                     mapButton.SetAdjustViewBounds (true);
+                    mapButton.Click += delegate {
+                        //*******************************************
+                        // TODO dylan, put start activity here and pass the args you want
+                        // use a copy of mapActivity and replace the typeof to that activity
+                        //*******************************************
+                        StartActivity(new Intent(Activity, typeof(mapActivity)));
+                    };
                     linlay.AddView (mapButton);
 
                     TextView tv = new TextView (Application.Context);
@@ -276,8 +306,8 @@ namespace AutoFences
                     tv.TextSize = 30;
                     //tv.Elevation = 4;
                     tv.SetPadding (5, 5, 5, 5);
-                    tv.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
-                    tv.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
+                    //tv.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
+                    tv.SetTextColor (Resources.GetColor(Resource.Color.black_text));
                     linlay.AddView (tv);
                     i++;
 
@@ -286,18 +316,19 @@ namespace AutoFences
                     innerll1.Id = i + 5000;
                     //innerll1.Elevation = 4;
                     innerll1.SetPadding (5, 5, 5, 5);
-                    innerll1.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
+                    //innerll1.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
 
                     ImageView iv1 = new ImageView (Application.Context);
                     iv1.SetImageResource (Resource.Drawable.stopwatch);
                     iv1.SetMaxHeight (50);
+                    iv1.SetColorFilter (Resources.GetColor(Resource.Color.accent));
                     iv1.SetAdjustViewBounds (true);
                     innerll1.AddView (iv1);
 
                     TextView tv1 = new TextView (Application.Context);
                     tv1.Text = "   " + td.tripLength;
                     tv1.TextSize = 20;
-                    tv1.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
+                    tv1.SetTextColor (Resources.GetColor(Resource.Color.secondary_text));
                     innerll1.AddView (tv1);
                     linlay.AddView (innerll1);
 
@@ -305,11 +336,12 @@ namespace AutoFences
                     innerll2.Orientation = Android.Widget.Orientation.Horizontal;
                     //innerll2.Elevation = 4;
                     innerll2.SetPadding (5, 5, 5, 5);
-                    innerll2.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
+                    //innerll2.SetBackgroundColor (Android.Graphics.Color.ParseColor("#BBDEFB"));
 
                     ImageView iv2 = new ImageView (Application.Context);
                     iv2.SetImageResource (Resource.Drawable.speedometer);
                     iv2.SetMaxHeight (50);
+                    iv2.SetColorFilter (Resources.GetColor(Resource.Color.accent));
                     iv2.SetAdjustViewBounds (true);
                     innerll2.AddView (iv2);
 
@@ -317,7 +349,7 @@ namespace AutoFences
                     tv2.Text = "   " + td.maxSpeed;
                     tv2.TextSize = 20;
                     //tv2.Elevation = 4;
-                    tv2.SetTextColor (Android.Graphics.Color.ParseColor ("#000000"));
+                    tv2.SetTextColor (Resources.GetColor(Resource.Color.secondary_text));
                     innerll2.AddView (tv2);
                     linlay.AddView (innerll2);
 
@@ -325,10 +357,7 @@ namespace AutoFences
                     spc.SetMinimumHeight (14);
                     linlay.AddView (spc);
                    
-                    if(firstTrip){
-                        lastTime = td.startDate + " @ " + td.startTime;
-                        firstTrip = false;
-                    }
+
                 }
 
                 var fe = Math.Round((fuelEcon / tripIndex),1);
@@ -369,12 +398,38 @@ namespace AutoFences
                                                Bundle savedInstanceState)
             {
                 View rootView = inflater.Inflate (Resource.Layout.Settings, container, false);
-                Button launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
+
+
+                var save = rootView.FindViewById<Button> (Resource.Id.saveTime);
+                var launchMap = rootView.FindViewById<Button> (Resource.Id.MapButton);
+                var startTime = rootView.FindViewById<EditText> (Resource.Id.startTime);
+                var endTime = rootView.FindViewById<EditText> (Resource.Id.endTime);
+                var togglebutton = rootView.FindViewById<ToggleButton>(Resource.Id.toggleButton);
+
+
+
+                togglebutton.Click += (o, e) => {
+                    // Perform action on toggle
+                    if (togglebutton.Checked)
+                        //TODO tommy, link this
+                        Console.WriteLine ("Speedfence should be enabled");
+                    else
+                        //TODO tommy, link this
+                        Console.WriteLine ("Speedfence should be disabled");
+                };
+
+                //save the chronofence
+                save.Click += delegate {
+                    //TODO tommy, link this
+                    //TODO should probably be a check here to see if input is valid [should be hh:mm]
+                    Console.WriteLine ("Chronofence starts at {0} PM and ends at {1}AM", startTime.Text, endTime.Text);
+                };
 
                 launchMap.Click += delegate {
                     //StartActivity (typeof(mapActivity));
                     StartActivity(new Intent(Activity, typeof(mapActivity)));
-                };return rootView;
+                };
+                return rootView;
             }
         }
 
