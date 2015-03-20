@@ -246,7 +246,7 @@ namespace AutoFences
 
                 foreach (Trip trip in result.Data) {
                     try{
-                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString ());
+                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString());
                         //add new trip to beginning of list, so they are in most recent first order
                         list.Insert(0, td);
                     } catch(Exception e){
@@ -270,11 +270,21 @@ namespace AutoFences
                     mapButton.SetImageResource (Resource.Drawable.mapButton);
                     mapButton.SetAdjustViewBounds (true);
                     mapButton.Click += delegate {
+                      
+                        var endLocation = new Location {
+                            Lat = Convert.ToDouble(td.lat),
+                            Lng = Convert.ToDouble(td.lng)
+                        };
+
+                        var tripviewActivity = new Intent (Activity, typeof(tripviewActivity));
+                        tripviewActivity.PutExtra ("myData", (Convert.ToString(endLocation)));
+                        StartActivity (tripviewActivity);
+              
                         //*******************************************
                         // TODO dylan, put start activity here and pass the args you want
                         // use a copy of mapActivity and replace the typeof to that activity
                         //*******************************************
-                        StartActivity(new Intent(Activity, typeof(mapActivity)));
+                        //StartActivity(new Intent(Activity, typeof(tripviewActivity)));
                     };
                     linlay.AddView (mapButton);
 
