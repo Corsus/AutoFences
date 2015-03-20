@@ -37,15 +37,41 @@ namespace AFTest
 
         //Test that longitude is set correctly
         [Test ()]
-        public void TestLng ()
+        public void TeststartLng ()
         {
             Assert.AreEqual ("50", tripData.startlocationlng);
         }
 
         //test that latitude is set correctly
         [Test ()]
-        public void TestLat (){
+        public void TeststartLat (){
             Assert.AreEqual ("50", tripData.startlocationlat);
+        }
+
+        //Test that longitude is set correctly
+        [Test ()]
+        public void TestendLng ()
+        {
+            Assert.AreEqual ("70", tripData.endlocationlng);
+        }
+
+        //test that latitude is set correctly
+        [Test ()]
+        public void TestendLat (){
+            Assert.AreEqual ("70", tripData.endlocationlat);
+        }
+
+        //Test that longitude is set correctly
+        [Test ()]
+        public void TestFuelLevel ()
+        {
+            Assert.AreEqual ("50", tripData.fuelLevel);
+        }
+
+        //test that latitude is set correctly
+        [Test ()]
+        public void TestFuelEfficiency (){
+            Assert.AreEqual ("0", tripData.fuelEfficiency);
         }
 
         //test that maxSpeed is set correctly
