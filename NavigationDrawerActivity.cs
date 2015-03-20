@@ -269,22 +269,18 @@ namespace AutoFences
                     ImageView mapButton = new ImageView (Application.Context);
                     mapButton.SetImageResource (Resource.Drawable.mapButton);
                     mapButton.SetAdjustViewBounds (true);
-                    mapButton.Click += delegate {
-                      
-                        var endLocation = new Location {
-                            Lat = Convert.ToDouble(td.lat),
-                            Lng = Convert.ToDouble(td.lng)
-                        };
-
+                    mapButton.Click += delegate {                      
                         var tripviewActivity = new Intent (Activity, typeof(tripviewActivity));
-                        tripviewActivity.PutExtra ("myData", (Convert.ToString(endLocation)));
+                        // Create bundle to send to tripViewActivity
+                        Bundle extras = new Bundle();
+                        extras.PutString ("lat", (td.lat));
+                        extras.PutString("lng", (td.lng));
+                        extras.PutString ("startTime", (td.startTime));
+                        extras.PutString("startDate",(td.startDate));
+                        extras.PutString("maxSpeed", (td.maxSpeed));
+                        extras.PutString("endTime", (td.endDateTime));
+                        tripviewActivity.PutExtra("extras", extras);                     
                         StartActivity (tripviewActivity);
-              
-                        //*******************************************
-                        // TODO dylan, put start activity here and pass the args you want
-                        // use a copy of mapActivity and replace the typeof to that activity
-                        //*******************************************
-                        //StartActivity(new Intent(Activity, typeof(tripviewActivity)));
                     };
                     linlay.AddView (mapButton);
 

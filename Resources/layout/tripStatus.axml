@@ -6,5 +6,34 @@
     <FrameLayout
         p1:id="@+id/map"
         p1:layout_width="fill_parent"
-        p1:layout_height="fill_parent" />
+        p1:layout_height="392.8dp"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_marginBottom="0.0dp" />
+    <TableRow
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="75.9dp"
+        p1:id="@+id/tableRow1">
+        <TextView
+            p1:id="@+id/endTime"
+            p1:gravity="center"
+            p1:textSize="32sp"
+            p1:layout_height="match_parent"
+            p1:layout_width="match_parent" />
+    </TableRow>
+    <TableRow
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="75.9dp"
+        p1:id="@+id/tableRow2">
+        <TextView
+            p1:gravity="center"
+            p1:id="@+id/maxSpeed"
+            p1:layout_height="match_parent"
+            p1:layout_width="match_parent"
+            p1:textSize="32sp" />
+    </TableRow>
 </LinearLayout>

@@ -1749,6 +1749,9 @@ namespace AutoFences
 			// aapt resource value: 0x7f0b0014
 			public const int end = 2131427348;
 			
+			// aapt resource value: 0x7f0b007d
+			public const int endTime = 2131427453;
+			
 			// aapt resource value: 0x7f0b0036
 			public const int expand_activities_button = 2131427382;
 			
@@ -1841,6 +1844,9 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f0b002a
 			public const int match_parent = 2131427370;
+			
+			// aapt resource value: 0x7f0b007f
+			public const int maxSpeed = 2131427455;
 			
 			// aapt resource value: 0x7f0b0078
 			public const int media_route_control_frame = 2131427448;
@@ -1982,6 +1988,12 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f0b000b
 			public const int tabMode = 2131427339;
+			
+			// aapt resource value: 0x7f0b007c
+			public const int tableRow1 = 2131427452;
+			
+			// aapt resource value: 0x7f0b007e
+			public const int tableRow2 = 2131427454;
 			
 			// aapt resource value: 0x7f0b0022
 			public const int terrain = 2131427362;
