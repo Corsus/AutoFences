@@ -6,7 +6,7 @@
     <FrameLayout
         p1:id="@+id/map"
         p1:layout_width="fill_parent"
-        p1:layout_height="392.8dp"
+        p1:layout_height="270.9dp"
         p1:minWidth="25px"
         p1:minHeight="25px"
         p1:layout_marginBottom="0.0dp" />
@@ -14,12 +14,12 @@
         p1:minWidth="25px"
         p1:minHeight="25px"
         p1:layout_width="match_parent"
-        p1:layout_height="75.9dp"
+        p1:layout_height="70dp"
         p1:id="@+id/tableRow1">
         <TextView
             p1:id="@+id/endTime"
             p1:gravity="center"
-            p1:textSize="32sp"
+            p1:textSize="25sp"
             p1:layout_height="match_parent"
             p1:layout_width="match_parent" />
     </TableRow>
@@ -27,13 +27,39 @@
         p1:minWidth="25px"
         p1:minHeight="25px"
         p1:layout_width="match_parent"
-        p1:layout_height="75.9dp"
+        p1:layout_height="70dp"
         p1:id="@+id/tableRow2">
         <TextView
             p1:gravity="center"
             p1:id="@+id/maxSpeed"
             p1:layout_height="match_parent"
             p1:layout_width="match_parent"
-            p1:textSize="32sp" />
+            p1:textSize="25sp" />
+    </TableRow>
+    <TableRow
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="70dp"
+        p1:id="@+id/tableRow3">
+        <TextView
+            p1:gravity="center"
+            p1:id="@+id/FuelLevel"
+            p1:layout_height="match_parent"
+            p1:layout_width="match_parent"
+            p1:textSize="25sp" />
+    </TableRow>
+    <TableRow
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="70dp"
+        p1:id="@+id/tableRow4">
+        <TextView
+            p1:gravity="center"
+            p1:id="@+id/FuelEff"
+            p1:layout_height="match_parent"
+            p1:layout_width="match_parent"
+            p1:textSize="25sp" />
     </TableRow>
 </LinearLayout>

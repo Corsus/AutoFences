@@ -1635,6 +1635,12 @@ namespace AutoFences
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0b0083
+			public const int FuelEff = 2131427459;
+			
+			// aapt resource value: 0x7f0b0081
+			public const int FuelLevel = 2131427457;
+			
 			// aapt resource value: 0x7f0b007a
 			public const int MapButton = 2131427450;
 			
@@ -1994,6 +2000,12 @@ namespace AutoFences
 			
 			// aapt resource value: 0x7f0b007e
 			public const int tableRow2 = 2131427454;
+			
+			// aapt resource value: 0x7f0b0080
+			public const int tableRow3 = 2131427456;
+			
+			// aapt resource value: 0x7f0b0082
+			public const int tableRow4 = 2131427458;
 			
 			// aapt resource value: 0x7f0b0022
 			public const int terrain = 2131427362;

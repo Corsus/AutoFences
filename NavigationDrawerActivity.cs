@@ -246,7 +246,8 @@ namespace AutoFences
 
                 foreach (Trip trip in result.Data) {
                     try{
-                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString());
+                        TripData td = new TripData(trip.StartTime, trip.EndTime, trip.MaxSpeed.Value.ToString(), trip.EndLocation.Lat.ToString(), trip.EndLocation.Lng.ToString(),
+                            trip.FuelEfficiency.ToString(), trip.FuelLevel.ToString(),trip.StartLocation.Lat.ToString(),trip.StartLocation.Lng.ToString());
                         //add new trip to beginning of list, so they are in most recent first order
                         list.Insert(0, td);
                     } catch(Exception e){
@@ -273,8 +274,12 @@ namespace AutoFences
                         var tripviewActivity = new Intent (Activity, typeof(tripviewActivity));
                         // Create bundle to send to tripViewActivity
                         Bundle extras = new Bundle();
-                        extras.PutString ("lat", (td.lat));
-                        extras.PutString("lng", (td.lng));
+                        extras.PutString ("endlat", (td.endlocationlat));
+                        extras.PutString("endlng", (td.endlocationlng));
+                        extras.PutString ("startlat", (td.startlocationlat));
+                        extras.PutString("startlng", (td.startlocationlng));
+                        extras.PutString ("fuelEfficiency", (td.fuelEfficiency));
+                        extras.PutString("fuelLevel", (td.fuelLevel));
                         extras.PutString ("startTime", (td.startTime));
                         extras.PutString("startDate",(td.startDate));
                         extras.PutString("maxSpeed", (td.maxSpeed));
