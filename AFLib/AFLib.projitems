@@ -10,5 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)TripData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configurations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MojioConnectionHelper.cs" />
   </ItemGroup>
 </Project>

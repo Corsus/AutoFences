@@ -35,6 +35,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TripDataTests\TripDataTest.cs" />
+    <Compile Include="ConfigurationsTests\ConfigurationsTests.cs" />
+    <Compile Include="GlobalsTests\GlobalsTests.cs" />
   </ItemGroup>
   <Import Project="..\AFLib\AFLib.projitems" Label="Shared" Condition="Exists('..\AFLib\AFLib.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -43,5 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TripDataTests\" />
+    <Folder Include="ConfigurationsTests\" />
+    <Folder Include="GlobalsTests\" />
   </ItemGroup>
 </Project>
