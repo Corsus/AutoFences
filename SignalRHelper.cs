@@ -25,9 +25,9 @@ namespace AutoFences
 
         public async static Task SignalRSetup (MojioClient client)
         {
-            Guid appID = new Guid (Configurations.appID);
-            Guid secretKey = new Guid (Configurations.secretKey);
-            Guid vehicleID = new Guid (Configurations.vehicleID);
+            Guid appID = new Guid (AFLib.Configurations.appID);
+            Guid secretKey = new Guid (AFLib.Configurations.secretKey);
+            Guid vehicleID = new Guid (AFLib.Configurations.vehicleID);
 
             //--------------------Subscribing to SignalR Events--------------------------//
             EventType[] types = new EventType[] {
@@ -52,7 +52,7 @@ namespace AutoFences
 
             // Create a new observer
             var observer = new GeoFenceObserver (vehicleID, center, radius);
-            var result = await Globals.client.CreateAsync (observer);
+            var result = await AFLib.Globals.client.CreateAsync (observer);
 
             // Subscript SignalR to the observer
             client.Observe (result.Data);
@@ -67,7 +67,7 @@ namespace AutoFences
         }
 
         public static void SignalRCleanup (MojioClient client) {
-            Guid vehicleID = new Guid (Configurations.vehicleID);
+            Guid vehicleID = new Guid (AFLib.Configurations.vehicleID);
             EventType[] types = new EventType[] {
                 EventType.IgnitionOn,
                 EventType.IgnitionOff,
