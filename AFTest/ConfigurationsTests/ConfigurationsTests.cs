@@ -20,7 +20,7 @@ namespace AFTest
          */ 
         [SetUp]
         public void ConfigurationsTestSetup(){
-            Configurations configurations;
+            //Configurations configurations;
         }
 
         //Test that unique appID is correct
