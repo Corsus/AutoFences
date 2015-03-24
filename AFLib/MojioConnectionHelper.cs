@@ -15,24 +15,24 @@ namespace AFLib
         /// <param name="prefs">SharedPreferences</param> 
         public async static Task<bool> setupMojioConnection (ISharedPreferences prefs)
         {
-            Guid appID = new Guid (AFLib.Configurations.appID);
-            Guid secretKey = new Guid (AFLib.Configurations.secretKey);
+            Guid appID = new Guid (Configurations.appID);
+            Guid secretKey = new Guid (Configurations.secretKey);
 
             try {
-                await AFLib.Globals.client.BeginAsync (appID, secretKey);
+                await Globals.client.BeginAsync (appID, secretKey);
             } catch (UnauthorizedAccessException uae) {
                 return false;
             }
 
             if ((prefs.GetString ("email", null)) != null && (prefs.GetString ("password", null)) != null) { //Check if credentials have already been entered. If so, log in.
                 try {
-                    await AFLib.Globals.client.SetUserAsync (prefs.GetString ("email", null), prefs.GetString ("password", null)); // Logs the user in.
+                    await Globals.client.SetUserAsync (prefs.GetString ("email", null), prefs.GetString ("password", null)); // Logs the user in.
                 } catch (Exception exception) {
                     return false;
                 }
             }
 
-            return AFLib.Globals.client.IsLoggedIn ();
+            return Globals.client.IsLoggedIn ();
         }
 
         /// <summary>
@@ -43,21 +43,21 @@ namespace AFLib
         /// <param name="password">Password.</param>
         public async static Task<bool> setupMojioConnectionFirstTime (String email, String password, ISharedPreferencesEditor prefsEditor)
         {
-            Guid appID = new Guid (AFLib.Configurations.appID);
-            Guid secretKey = new Guid (AFLib.Configurations.secretKey);
+            Guid appID = new Guid (Configurations.appID);
+            Guid secretKey = new Guid (Configurations.secretKey);
 
             try {
-                await AFLib.Globals.client.BeginAsync (appID, secretKey);
+                await Globals.client.BeginAsync (appID, secretKey);
             } catch (UnauthorizedAccessException uae) {
                 return false;
             }
 
             try {
-                await AFLib.Globals.client.SetUserAsync (email, password); // Logs the user in.
+                await Globals.client.SetUserAsync (email, password); // Logs the user in.
             } catch (Exception exception) {
                 return false;
             }
-            if (AFLib.Globals.client.IsLoggedIn ()) {
+            if (Globals.client.IsLoggedIn ()) {
                 setSharedPreferenceCredentials (email, password, prefsEditor);
                 return true;
             } else {
@@ -71,7 +71,7 @@ namespace AFLib
         /// <returns><c>true</c>, if client is logged in, <c>false</c> otherwise.</returns>
         public static Boolean isClientLoggedIn ()
         {
-            return AFLib.Globals.client.IsLoggedIn ();
+            return Globals.client.IsLoggedIn ();
         }
 
         /// <summary>

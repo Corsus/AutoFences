@@ -23,18 +23,28 @@ namespace AFTest
         [Test ()]
         public void TestInstanceNull ()
         {
-            Assert.IsNotNull(this, instance); 
-
-        }
-
-        //Test that instance is correct
-        [Test ()]
-        public void TestInstance ()
-        {
-            Assert.IsInstanceOfType (this, instance);
-
+            Assert.IsNotNull(instance); 
         }
             
+        [Test,Ignore]
+        public void NegativeTest ()
+        {
+            if (true)
+                Assert.Fail ("This is a standard-procudure deliberate fail!");
+        }
+
+        //Standard NotSupportedException Throw
+        [Test, ExpectedException(typeof(NotSupportedException))]
+        public void ExpectedExceptionTest()
+        {
+            throw new NotSupportedException ();
+        }
+
+        [Test, Ignore]
+        public void NotImplementedException()
+        {
+            throw new NotImplementedException ();
+        }
 
     }
 }
