@@ -4,15 +4,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{000FB90B-659E-4720-8021-47FF135CAEC6}</ProjectGuid>
+    <ProjectGuid>{F6D43115-56C6-4193-9277-74AEADC8CA6C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>AFTest</RootNamespace>
+    <RootNamespace>AFLib</RootNamespace>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>AFTest</AssemblyName>
+    <AssemblyName>AFLib</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,9 +39,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
@@ -68,10 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="ConfigurationsTests\ConfigurationsTests.cs" />
-    <Compile Include="GlobalsTests\GlobalsTests.cs" />
-    <Compile Include="TripDataTests\TripDataTest.cs" />
-    <Compile Include="MojioConnectionHelperTests\MojioConnectionHelperTests.cs" />
+    <Compile Include="Configurations.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="MojioConnectionHelper.cs" />
+    <Compile Include="TripData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -82,16 +79,4 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
-  <ItemGroup>
-    <Folder Include="ConfigurationsTests\" />
-    <Folder Include="GlobalsTests\" />
-    <Folder Include="TripDataTests\" />
-    <Folder Include="MojioConnectionHelperTests\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AFLib\AFLib.csproj">
-      <Project>{F6D43115-56C6-4193-9277-74AEADC8CA6C}</Project>
-      <Name>AFLib</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
